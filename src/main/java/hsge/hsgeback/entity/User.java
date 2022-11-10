@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -26,6 +28,10 @@ public class User {
     private String name;
 
     private String password;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Moim> moims = new ArrayList<>();
 
     @Builder
     public User(String email, String nickname, String name, String password) {
