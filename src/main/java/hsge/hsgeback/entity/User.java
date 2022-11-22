@@ -1,5 +1,6 @@
 package hsge.hsgeback.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +30,17 @@ public class User {
 
     private String password;
 
+    private String latitude;
 
+    private String longtitude;
+
+    private Role role;
+
+    private String profile;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Moim> moims = new ArrayList<>();
+    private List<Pet> pet = new ArrayList<>();
 
     @Builder
     public User(String email, String nickname, String name, String password) {
