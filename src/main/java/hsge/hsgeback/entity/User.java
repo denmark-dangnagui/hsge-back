@@ -38,6 +38,8 @@ public class User extends BaseEntity {
 
     private String profilePath;
 
+    private String po; // ㄱㅏ짜
+
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Pet> pet = new ArrayList<>();
