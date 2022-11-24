@@ -36,7 +36,7 @@ public class User extends BaseEntity {
 
     private Role role;
 
-    private String profile;
+    private String profilePath;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
